@@ -5,6 +5,9 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class GameFrame extends JFrame {
 
@@ -19,6 +22,7 @@ public class GameFrame extends JFrame {
         setResizable(false);
         pack();
         setLocationRelativeTo(null);
+        setMenu();
         setVisible(true);
         
         
@@ -38,4 +42,28 @@ public class GameFrame extends JFrame {
         
         });
     }
+    
+    public void setMenu() {
+		
+		JMenuBar mb = new JMenuBar();
+		setJMenuBar(mb);
+		
+		JMenuItem restart = new JMenu("Reiniciar");
+		mb.add(restart);
+		
+		JMenuItem pause = new JMenu("Pausa");
+		mb.add(pause);
+		
+		JMenu difficulty = new JMenu("Dificultad");
+		mb.add(difficulty);
+		
+		JMenuItem easy = new JMenuItem("Fácil");
+		difficulty.add(easy);
+		
+		JMenuItem medium = new JMenuItem("Medio");
+		difficulty.add(medium);
+		
+		JMenuItem hard = new JMenuItem("Dificil");
+		difficulty.add(hard);
+	}
 }
