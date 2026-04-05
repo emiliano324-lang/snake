@@ -12,6 +12,9 @@ import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
@@ -56,8 +59,11 @@ public class GamePanel extends JPanel {
 	JLabel lblContinue;
 	JLabel lblPause;
 	
+
 	public GamePanel() {
 		
+		
+			
 			// Posición inicial de la cabeza de la serpiente
 			snakeX = 250;
 			snakeY = 100;
@@ -149,10 +155,7 @@ public class GamePanel extends JPanel {
 				@Override
 				public void keyPressed(KeyEvent e) {
 					
-					if(isDead) {
-						restart();
-						return;
-					}
+					
 	
 					// Cambiar la dirección dependiendo de la tecla presionada
 					switch (e.getKeyCode()) {
@@ -189,6 +192,13 @@ public class GamePanel extends JPanel {
 						
 					case KeyEvent.VK_P:
 						pauseGame();
+						break;
+					case KeyEvent.VK_R:
+						if(isDead) {
+							restart();
+							return;
+						}
+					break;
 					}
 				}
 				
@@ -383,6 +393,15 @@ public class GamePanel extends JPanel {
 		}
 	}
 	
+	
+	
+	public void setSpeed(int speed) {
+		
+		timer.setDelay(timer.getDelay() - speed);
+		
+	}
+	
+	
 	public void restart() {
 		
 		snakeX = 250;
@@ -412,5 +431,7 @@ public class GamePanel extends JPanel {
 	    
 	    repaint();
 	}
+	
+	
 	
 }

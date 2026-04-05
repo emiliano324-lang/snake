@@ -22,7 +22,7 @@ public class GameFrame extends JFrame {
         setResizable(false);
         pack();
         setLocationRelativeTo(null);
-        setMenu();
+    	setMenu();
         setVisible(true);
         
         
@@ -41,29 +41,50 @@ public class GameFrame extends JFrame {
         	}
         
         });
+        
+        
+        
+        
+        
     }
+   
+   
     
     public void setMenu() {
-		
-		JMenuBar mb = new JMenuBar();
-		setJMenuBar(mb);
-		
-		JMenuItem restart = new JMenu("Reiniciar");
-		mb.add(restart);
-		
-		JMenuItem pause = new JMenu("Pausa");
-		mb.add(pause);
-		
-		JMenu difficulty = new JMenu("Dificultad");
-		mb.add(difficulty);
-		
-		JMenuItem easy = new JMenuItem("Fácil");
-		difficulty.add(easy);
-		
-		JMenuItem medium = new JMenuItem("Medio");
-		difficulty.add(medium);
-		
-		JMenuItem hard = new JMenuItem("Dificil");
-		difficulty.add(hard);
-	}
+
+        JMenuBar mb = new JMenuBar();
+        setJMenuBar(mb);
+
+        JMenu gameMenu = new JMenu("Juego");
+        mb.add(gameMenu);
+
+        JMenuItem restart = new JMenuItem("Reiniciar");
+        gameMenu.add(restart);
+
+        JMenuItem pause = new JMenuItem("Pausa");
+        gameMenu.add(pause);
+
+        JMenu difficulty = new JMenu("Dificultad");
+        mb.add(difficulty);
+
+        JMenuItem easy = new JMenuItem("Fácil");
+        JMenuItem medium = new JMenuItem("Medio");
+        JMenuItem hard = new JMenuItem("Difícil");
+
+        difficulty.add(easy);
+        difficulty.add(medium);
+        difficulty.add(hard);
+
+
+        restart.addActionListener(e -> panel.restart());
+
+        pause.addActionListener(e -> panel.pauseGame());
+
+        easy.addActionListener(e -> panel.setSpeed(150));
+
+        medium.addActionListener(e -> panel.setSpeed(100));
+
+        hard.addActionListener(e -> panel.setSpeed(50));
+    }
+    
 }
