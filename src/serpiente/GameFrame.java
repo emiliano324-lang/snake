@@ -87,4 +87,8 @@ public class GameFrame extends JFrame {
         hard.addActionListener(e -> panel.setSpeed(50));
     }
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 68c30a25addf17fa8999366fab42ca14b56ebc56
